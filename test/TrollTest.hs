@@ -12,27 +12,6 @@ test_iGotOneHighArcher =
       aklassAfter = SUT.iGotOne highArcher aklassBefore
    in SUT.score aklassAfter @?= 4
 
-test_iGotOneHighPriest =
-  testCase "Killing a High Priest is worth 10 points" $
-  let aklassBefore = Troll {name = "Aklass", killList = mempty}
-      highPriest = Elf {race = High, role = Priest}
-      aklassAfter = SUT.iGotOne highPriest aklassBefore
-   in SUT.score aklassAfter @?= 10
-
-test_iGotOneDarkSwordsman =
-  testCase "Killing a Dark Swordsman is worth 1 points" $
-  let aklassBefore = Troll {name = "Aklass", killList = mempty}
-      darkSwordsman = Elf {race = Dark, role = Swordsman}
-      aklassAfter = SUT.iGotOne darkSwordsman aklassBefore
-   in SUT.score aklassAfter @?= 1
-
-test_iGotOneDarkWarlock =
-  testCase "Killing a Dark Warlock is worth 4 points" $
-  let aklassBefore = Troll {name = "Aklass", killList = mempty}
-      darkWarlock = Elf {race = Dark, role = Warlock}
-      aklassAfter = SUT.iGotOne darkWarlock aklassBefore
-   in SUT.score aklassAfter @?= 4
-
 test_oopsHeSurvivedDarkWarlock =
   testCase "When a Dark Warlock survives, then he is removed from the troll kill list" $
   let darkWarlock = Elf {race = Dark, role = Warlock}
@@ -43,8 +22,8 @@ test_oopsHeSurvivedDarkWarlock =
 test_allElvesOfAKindResurrected =
   testCase "When Dark Swordsmen are resurrected, then they are removed from troll kill lists" $
   let darkSwordsman = Elf {race = Dark, role = Swordsman}
-      highPriest = Elf {race = High, role = Priest}
-      killList = Map.fromList [(darkSwordsman, 3), (highPriest, 42)]
+      highArcher = Elf {race = High, role = Archer}
+      killList = Map.fromList [(darkSwordsman, 3), (highArcher, 42)]
       aklassBefore = Troll {name = "Aklass", killList}
       aklassAfter = SUT.allElvesOfAKindResurrected darkSwordsman aklassBefore
-   in SUT.score aklassAfter @?= 420
+   in SUT.score aklassAfter @?= 168

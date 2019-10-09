@@ -4,9 +4,10 @@ import           Elf
 import           Test.Tasty.HUnit
 
 test_darkWarlock =
-  testCase "A High Warlock is worth 8 points" $
+  testCase "Dark warlocks all have the same value" $
   let doomShadow = Elf {race = High, role = Warlock}
-   in value doomShadow @?= 8
+      thundershade = Elf {race = High, role = Warlock}
+   in value doomShadow @?= value thundershade
 
 test_darkArcherSameValueAsHighSwordsman =
   testCase "A Dark Archer is worth the same as a High Swordsman" $

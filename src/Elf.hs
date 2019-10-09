@@ -20,7 +20,7 @@ data Role
   deriving (Eq, Show, Ord, Bounded, Enum)
 
 value :: Elf -> Score
-value Elf {..} = multiplierPerRace race * valuePerRole role
+value Elf {..} = multiplierPerRace race + valuePerRole role
 
 -- | Because everybody hates those smug High Elves
 multiplierPerRace :: Race -> Multiplier

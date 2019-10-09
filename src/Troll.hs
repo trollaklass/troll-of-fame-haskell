@@ -29,7 +29,7 @@ score :: Troll -> Score
 score Troll {killList} = Map.foldlWithKey accumulator start killList
   where
     start = 0
-    accumulator previousScore elf (QuantityKilled nbKilled) = previousScore + (value elf * nbKilled)
+    accumulator previousScore elf (QuantityKilled nbKilled) = value elf * nbKilled
 
 iGotOne :: Elf -> Troll -> Troll
 iGotOne = modifyScore (+ 1)
@@ -48,8 +48,6 @@ allElvesOfAKindResurrected elf Troll {..} = Troll {killList = killListWithoutRes
 modifyScore :: (QuantityKilled -> QuantityKilled) -> Elf -> Troll -> Troll
 modifyScore modifier elf Troll {..} = Troll {killList = newKillList, ..}
   where
-    newKillList
-      | nextNbKilled <= 0 = Map.delete elf killList
-      | otherwise = Map.insert elf nextNbKilled killList
+    newKillList = Map.insert elf nextNbKilled killList
     currentNbKilled = Map.lookup elf killList
     nextNbKilled = modifier $ fromMaybe 0 currentNbKilled
