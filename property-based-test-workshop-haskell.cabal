@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ef7bb00ddbcae7918628c5bc8294d05321af69912606f3898e18767581f6d267
+-- hash: e762f2c81d3661bc987d585377f6b306dc5729954b1a259102e53d061c042ecb
 
 name:           property-based-test-workshop-haskell
 version:        1.0.0.0
@@ -32,7 +32,7 @@ library
   default-extensions: AutoDeriveTypeable BangPatterns BinaryLiterals ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable DoAndIfThenElse DuplicateRecordFields EmptyDataDecls ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase MonadFailDesugaring MultiParamTypeClasses MultiWayIf NamedFieldPuns OverloadedLists OverloadedStrings PartialTypeSignatures PatternGuards PolyKinds QuasiQuotes RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TemplateHaskell TupleSections TypeFamilies TypeOperators TypeSynonymInstances ViewPatterns StrictData
   ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-home-modules -Widentities -Wredundant-constraints -j -O0
   build-depends:
-      base >=4.7 && <5
+      base
     , containers
   default-language: Haskell2010
 
@@ -50,7 +50,7 @@ test-suite property-based-test-workshop-haskell-test
   default-extensions: AutoDeriveTypeable BangPatterns BinaryLiterals ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable DoAndIfThenElse DuplicateRecordFields EmptyDataDecls ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase MonadFailDesugaring MultiParamTypeClasses MultiWayIf NamedFieldPuns OverloadedLists OverloadedStrings PartialTypeSignatures PatternGuards PolyKinds QuasiQuotes RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TemplateHaskell TupleSections TypeFamilies TypeOperators TypeSynonymInstances ViewPatterns StrictData
   ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-home-modules -Widentities -Wredundant-constraints -j -O0 -Wall -Wcompat -Wmissing-home-modules -Widentities -Wredundant-constraints -fno-warn-missing-signatures -fno-warn-orphans -fno-warn-incomplete-uni-patterns -threaded -rtsopts -with-rtsopts=-N -O0
   build-depends:
-      base >=4.7 && <5
+      base
     , containers
     , property-based-test-workshop-haskell
     , tasty

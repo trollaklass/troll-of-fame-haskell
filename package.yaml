@@ -23,7 +23,7 @@ ghc-options:
   - -O0
 
 dependencies:
-  - base >= 4.7 && < 5
+  - base
   # Provides Map data structure
   - containers
 
